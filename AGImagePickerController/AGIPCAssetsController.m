@@ -139,7 +139,7 @@
         {
             UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
             space.width = 11;
-            self.navigationItem.rightBarButtonItems = @[doneButtonItem, space];
+            self.navigationItem.rightBarButtonItems = @[space, doneButtonItem];
         }
         else
         {
