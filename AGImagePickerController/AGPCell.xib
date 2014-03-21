@@ -23,14 +23,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sa-zK-EoN">
-                        <rect key="frame" x="65" y="17" width="172" height="21"/>
+                        <rect key="frame" x="65" y="17" width="167" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q1-35-Sq1">
-                        <rect key="frame" x="247" y="18" width="40" height="19"/>
+                        <rect key="frame" x="242" y="18" width="40" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" red="0.086274509799999996" green="0.46666666670000001" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                     <constraint firstItem="qlE-qX-xN4" firstAttribute="top" secondItem="4Sg-qp-gzY" secondAttribute="top" id="EMV-hQ-8TB"/>
                     <constraint firstItem="1Q1-35-Sq1" firstAttribute="leading" secondItem="7sa-zK-EoN" secondAttribute="trailing" constant="10" id="NLe-Fe-Rlg"/>
                     <constraint firstAttribute="centerY" secondItem="1Q1-35-Sq1" secondAttribute="centerY" id="cEk-nZ-2yV"/>
-                    <constraint firstAttribute="trailing" secondItem="1Q1-35-Sq1" secondAttribute="trailing" id="mvH-n7-9o2"/>
+                    <constraint firstAttribute="trailing" secondItem="1Q1-35-Sq1" secondAttribute="trailing" constant="5" id="mvH-n7-9o2"/>
                     <constraint firstItem="qlE-qX-xN4" firstAttribute="leading" secondItem="4Sg-qp-gzY" secondAttribute="leading" id="vT4-d4-NUe"/>
                 </constraints>
             </tableViewCellContentView>
