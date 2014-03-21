@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		54A1E5551882A31E00D556FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A1E5541882A31E00D556FD /* CoreLocation.framework */; };
+		E6FAEDDC18DBCAD3003EE529 /* AGPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FAEDDA18DBCAD3003EE529 /* AGPCell.m */; };
+		E6FAEDDD18DBCAD3003EE529 /* AGPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FAEDDB18DBCAD3003EE529 /* AGPCell.xib */; };
 		FE1E332914ED167800F6A6A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E332814ED167800F6A6A2 /* UIKit.framework */; };
 		FE1E332B14ED167800F6A6A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E332A14ED167800F6A6A2 /* Foundation.framework */; };
 		FE1E333314ED167800F6A6A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE1E333114ED167800F6A6A2 /* InfoPlist.strings */; };
@@ -35,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		54A1E5541882A31E00D556FD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E6FAEDD918DBCAD3003EE529 /* AGPCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPCell.h; sourceTree = "<group>"; };
+		E6FAEDDA18DBCAD3003EE529 /* AGPCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPCell.m; sourceTree = "<group>"; };
+		E6FAEDDB18DBCAD3003EE529 /* AGPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGPCell.xib; sourceTree = "<group>"; };
 		FE1E332414ED167800F6A6A2 /* AGImagePickerController Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AGImagePickerController Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE1E332814ED167800F6A6A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FE1E332A14ED167800F6A6A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +158,9 @@
 		FEA599C714ED1A8C0057FF9C /* AGImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
+				E6FAEDD918DBCAD3003EE529 /* AGPCell.h */,
+				E6FAEDDA18DBCAD3003EE529 /* AGPCell.m */,
+				E6FAEDDB18DBCAD3003EE529 /* AGPCell.xib */,
 				FE4DE10216C267400075E499 /* AGImagePickerController+Helper.h */,
 				FE4DE10316C267410075E499 /* AGImagePickerController+Helper.m */,
 				FEDAA95616C3089600234FF0 /* AGImagePickerController.bundle */,
@@ -230,6 +238,7 @@
 				FE1E333F14ED167800F6A6A2 /* AGViewController_iPhone.xib in Resources */,
 				FE1E334214ED167800F6A6A2 /* AGViewController_iPad.xib in Resources */,
 				FE3850CB1501B8A10053C9DD /* README.md in Resources */,
+				E6FAEDDD18DBCAD3003EE529 /* AGPCell.xib in Resources */,
 				FEF247F2150DF461008FEFAD /* AGImagePickerController-icon.png in Resources */,
 				FEF247F5150DF463008FEFAD /* AGImagePickerController-icon@2x.png in Resources */,
 				FE4DE10116C2546B0075E499 /* Default-568h@2x.png in Resources */,
@@ -249,6 +258,7 @@
 				FE1E333914ED167800F6A6A2 /* AGAppDelegate.m in Sources */,
 				FE1E333C14ED167800F6A6A2 /* AGViewController.m in Sources */,
 				FEA599CC14ED1C500057FF9C /* AGImagePickerController.m in Sources */,
+				E6FAEDDC18DBCAD3003EE529 /* AGPCell.m in Sources */,
 				FEA599E814ED38EE0057FF9C /* AGIPCAlbumsController.m in Sources */,
 				FECDC90114EDB9C30038006D /* AGIPCGridCell.m in Sources */,
 				FECDC90514EDBB690038006D /* AGIPCGridItem.m in Sources */,
@@ -354,7 +364,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGImagePickerController Demo/AGImagePickerController Demo-Prefix.pch";
 				INFOPLIST_FILE = "AGImagePickerController Demo/AGImagePickerController Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -369,7 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGImagePickerController Demo/AGImagePickerController Demo-Prefix.pch";
 				INFOPLIST_FILE = "AGImagePickerController Demo/AGImagePickerController Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

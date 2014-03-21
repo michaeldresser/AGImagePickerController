@@ -13,6 +13,7 @@
 
 #import "AGImagePickerController.h"
 #import "AGIPCAssetsController.h"
+#import "AGPCell.h"
 
 @interface AGIPCAlbumsController ()
 {
@@ -100,6 +101,22 @@
     // Navigation Bar Items
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
 	self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending)
+    {
+        UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        space.width = 11;
+        self.navigationItem.leftBarButtonItems = [@[space] arrayByAddingObject: cancelButton];
+    }
+    else
+    {
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    
+    id nib = [UINib nibWithNibName: @"AGPCell" bundle: nil];
+    [self.tableView registerNib: nib forCellReuseIdentifier: @"Cell"];
+    
 }
 
 - (void)viewDidUnload
@@ -121,7 +138,6 @@
 }
 
 #pragma mark - UITableViewDataSource Methods
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.assetsGroups.count;
@@ -130,22 +146,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    }
-    
+    AGPCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"Cell"];
+
     ALAssetsGroup *group = (self.assetsGroups)[indexPath.row];
     [group setAssetsFilter:[ALAssetsFilter allPhotos]];
     NSUInteger numberOfAssets = group.numberOfAssets;
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [group valueForProperty:ALAssetsGroupPropertyName]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", numberOfAssets];
-    [cell.imageView setImage:[UIImage imageWithCGImage:[(ALAssetsGroup *)self.assetsGroups[indexPath.row] posterImage]]];
-	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-	
+    cell.AGPName.text = [NSString stringWithFormat:@"%@", [group valueForProperty:ALAssetsGroupPropertyName]];
+    cell.AGPDetail.text = [NSString stringWithFormat:@"%d", numberOfAssets];
+    [cell.AGPImage setImage:[UIImage imageWithCGImage:[(ALAssetsGroup *)self.assetsGroups[indexPath.row] posterImage]]];
+    
     return cell;
 }
 
@@ -161,7 +171,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {	
-	return 57;
+	return 55;
 }
 
 #pragma mark - Private

@@ -134,7 +134,17 @@
         // Navigation Bar Items
         UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
         doneButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem = doneButtonItem;
+        
+        if ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending)
+        {
+            UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+            space.width = 11;
+            self.navigationItem.rightBarButtonItems = @[space, doneButtonItem];
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem = doneButtonItem;
+        }
         
         // Setup toolbar items
         [self setupToolbarItems];
