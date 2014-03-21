@@ -99,7 +99,7 @@
     [self registerForNotifications];
     
     // Navigation Bar Items
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle: @"Cancel" style: UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle: @"CANCEL" style: UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
 	self.navigationItem.leftBarButtonItem = cancelButton;
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending)
