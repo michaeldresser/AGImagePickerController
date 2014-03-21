@@ -112,10 +112,13 @@
     {
         self.navigationItem.leftBarButtonItem = cancelButton;
     }
-    self.tableView.separatorInset = UIEdgeInsetsZero;
     
-    id nib = [UINib nibWithNibName: @"AGPCell" bundle: nil];
-    [self.tableView registerNib: nib forCellReuseIdentifier: @"Cell"];
+    if ([self.tableView respondsToSelector:@selector(separatorInset)])
+    {
+        self.tableView.separatorInset = UIEdgeInsetsZero;
+    }
+    
+    [self.tableView registerNib: [UINib nibWithNibName: @"AGPCell" bundle: nil] forCellReuseIdentifier: @"Cell"];
     
 }
 
