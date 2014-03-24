@@ -178,10 +178,7 @@ static NSUInteger numberOfSelectedGridItems = 0;
     self.selectionView.alpha = .5f;
     self.selectionView.hidden = !self.selected;
 
-    if (IS_IPAD())
-    self.checkmarkImageView.image = [UIImage imageNamed:@"AGImagePickerController.bundle/AGIPC-Checkmark-iPad"];
-    else
-    self.checkmarkImageView.image = [UIImage imageNamed:@"AGImagePickerController.bundle/AGIPC-Checkmark-iPhone"];
+    self.checkmarkImageView.image = [UIImage imageNamed:@"AGImagePickerController.bundle/AGIPC-Checkmark"];
     self.checkmarkImageView.hidden = !self.selected;
 }
 

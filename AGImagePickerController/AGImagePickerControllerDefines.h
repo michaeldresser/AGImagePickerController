@@ -36,8 +36,8 @@
 #define SELECTION_BEHAVIOR_IN_SINGLE_SELECTION_MODE                             0
 
 // Size in points
-#define AGIPC_CHECKMARK_WIDTH                                                   28.f
-#define AGIPC_CHECKMARK_HEIGHT                                                  28.f
+#define AGIPC_CHECKMARK_WIDTH                                                   22.f
+#define AGIPC_CHECKMARK_HEIGHT                                                  22.f
 #define AGIPC_CHECKMARK_RIGHT_MARGIN                                            4.f
 #define AGIPC_CHECKMARK_BOTTOM_MARGIN                                           4.f
 
