@@ -45,13 +45,13 @@
 #define AGIPC_CHECKMARK_SIZE                                                    CGSizeMake(AGIPC_CHECKMARK_WIDTH, AGIPC_CHECKMARK_HEIGHT)
 #define AGIPC_CHECKMARK_RECT                                                    CGRectMake(AGIPC_CHECKMARK_BOTTOM_RIGHT_POINT.x, AGIPC_CHECKMARK_BOTTOM_RIGHT_POINT.y, AGIPC_CHECKMARK_SIZE.width, AGIPC_CHECKMARK_SIZE.height)
 
-#define AGIPC_ITEMS_PER_ROW_IPHONE_PORTRAIT                                     4
+#define AGIPC_ITEMS_PER_ROW_IPHONE_PORTRAIT                                     3
 #define AGIPC_ITEMS_PER_ROW_IPHONE_LANDSCAPE                                    6
-#define AGIPC_ITEMS_PER_ROW_IPAD_PORTRAIT                                       8
+#define AGIPC_ITEMS_PER_ROW_IPAD_PORTRAIT                                       6
 #define AGIPC_ITEMS_PER_ROW_IPAD_LANDSCAPE                                      12
 
-#define AGIPC_ITEM_WIDTH                                                        75.f
-#define AGIPC_ITEM_HEIGHT                                                       75.f
+#define AGIPC_ITEM_WIDTH                                                        100.f
+#define AGIPC_ITEM_HEIGHT                                                       100.f
 
 #define AGIPC_ITEM_SIZE                                                         CGSizeMake(AGIPC_ITEM_WIDTH, AGIPC_ITEM_HEIGHT)
 

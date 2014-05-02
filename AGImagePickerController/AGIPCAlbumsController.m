@@ -181,50 +181,55 @@
 
 - (void)loadAssetsGroups
 {
-    __ag_weak AGIPCAlbumsController *weakSelf = self;
-    
-    [self.assetsGroups removeAllObjects];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    @synchronized(self.assetsGroups)
+    {
+        __ag_weak AGIPCAlbumsController *weakSelf = self;
         
-        @autoreleasepool {
+        [self.assetsGroups removeAllObjects];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             
-            void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop) 
-            {
-                if (group == nil) 
+            @autoreleasepool {
+                
+                void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop)
                 {
-                    return;
-                }
-                
-                if (weakSelf.imagePickerController.shouldShowSavedPhotosOnTop) {
-                    if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] == ALAssetsGroupSavedPhotos) {
-                        [self.assetsGroups insertObject:group atIndex:0];
-                    } else if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] > ALAssetsGroupSavedPhotos) {
-                        [self.assetsGroups insertObject:group atIndex:1];
-                    } else {
-                        [self.assetsGroups addObject:group];
+                    @synchronized(self.assetsGroups)
+                    {
+                        if (group == nil)
+                        {
+                            return;
+                        }
+                        
+                        if (weakSelf.imagePickerController.shouldShowSavedPhotosOnTop) {
+                            if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] == ALAssetsGroupSavedPhotos) {
+                                [self.assetsGroups insertObject:group atIndex:0];
+                            } else if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] > ALAssetsGroupSavedPhotos && self.assetsGroups.count > 0) {
+                                [self.assetsGroups insertObject:group atIndex:1];
+                            } else {
+                                [self.assetsGroups addObject:group];
+                            }
+                        } else {
+                            [self.assetsGroups addObject:group];
+                        }
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self reloadData];
+                        });
                     }
-                } else {
-                    [self.assetsGroups addObject:group];
-                }
+                };
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self reloadData];
-                });
-            };
-            
-            void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
-                NSLog(@"A problem occured. Error: %@", error.localizedDescription);
-                [self.imagePickerController performSelector:@selector(didFail:) withObject:error];
-            };	
-            
-            [[AGImagePickerController defaultAssetsLibrary] enumerateGroupsWithTypes:ALAssetsGroupAll
-                                   usingBlock:assetGroupEnumerator 
-                                 failureBlock:assetGroupEnumberatorFailure];
-            
-        }
-        
-    });
+                void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
+                    NSLog(@"A problem occured. Error: %@", error.localizedDescription);
+                    [self.imagePickerController performSelector:@selector(didFail:) withObject:error];
+                };
+                
+                [[AGImagePickerController defaultAssetsLibrary] enumerateGroupsWithTypes:ALAssetsGroupAll
+                                                                              usingBlock:assetGroupEnumerator
+                                                                            failureBlock:assetGroupEnumberatorFailure];
+                
+            }
+        });
+    }
 }
 
 - (void)reloadData
